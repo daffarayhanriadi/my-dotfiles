@@ -5,15 +5,16 @@
 ---@type ChadrcConfig
 local M = {}
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = false,
+vim.diagnostic.config( {
+  virtual_text = true,
 })
 
 M.base46 = {
   theme = "everblush",
   hl_override = {
-    Comment = { fg = "#747474", italic = true },
-    ["@comment"] = { italic = true },
+    Comment = { fg = "#747474", italic = true }, -- Vim Comment
+    ["@comment"] = { fg = "#747474", italic = true }, -- Programming Comment
+    LspInlayHint = {fg = "#747474", italic = true }, -- Inlay Hint Comment
   },
 }
 
@@ -33,7 +34,6 @@ M.nvdash = {
      -- "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
      -- "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
      -- "                                 ",
-  
      "                      ",
      "  ▄▄         ▄ ▄▄▄▄▄▄▄",
      "▄▀███▄     ▄██ █████▀ ",
