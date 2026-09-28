@@ -6,7 +6,7 @@
 local M = {}
 
 vim.diagnostic.config( {
-  virtual_text = true,
+  virtual_text = false,
 })
 
 M.base46 = {
