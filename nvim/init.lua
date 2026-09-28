@@ -36,22 +36,16 @@ vim.schedule(function()
   require "mappings"
 end)
 
--- 1. Mengaktifkan sinkronisasi clipboard Neovim dengan sistem
+-- Clipboard in WSL without xclip
+-- Mengaktifkan sinkronisasi clipboard Neovim dengan sistem
 vim.opt.clipboard = "unnamedplus"
-
--- 2. Mengoptimalkan penanganan wl-clipboard khusus di lingkungan WSL
-if vim.fn.has("wsl") == 1 then
-  vim.g.clipboard = {
-    name = "wl-clipboard-wsl",
-    copy = {
-      ["+"] = "wl-copy --foreground --type text/plain",
-      ["*"] = "wl-copy --foreground --primary --type text/plain",
-    },
-    paste = {
-      -- Menghapus karakter \r (CRLF Windows) agar teks bersih saat masuk ke Neovim
-      ["+"] = 'wl-paste --no-newline | sed -e "s/\\r$//"',
-      ["*"] = 'wl-paste --no-newline --primary | sed -e "s/\\r$//"',
-    },
-    cache_enabled = 1,
+vim.g.clipboard = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard))"
   }
-end
+}
