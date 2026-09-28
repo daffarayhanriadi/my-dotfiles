@@ -37,15 +37,18 @@ vim.schedule(function()
 end)
 
 -- Clipboard in WSL without xclip
--- Mengaktifkan sinkronisasi clipboard Neovim dengan sistem
-vim.opt.clipboard = "unnamedplus"
+-- This is a WSL specific setting to use the Windows clipboard for + and * registers
+-- if you have the default PowerShell, subtitute pwsh.exe with powershell.exe
+vim.opt.clipboard = "unnamedplus" -- Mengaktifkan sinkronisasi clipboard Neovim dengan sistem
 vim.g.clipboard = {
-  name = "WslClipboard",
+  name = 'WslClipboard',
   copy = {
-    ["+"] = "clip.exe",
-    ["*"] = "clip.exe",
+    ['+'] = 'clip.exe',
+    ['*'] = 'clip.exe',
   },
   paste = {
-    ["+"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard))"
-  }
+    ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 0,
 }
