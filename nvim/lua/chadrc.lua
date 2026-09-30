@@ -13,7 +13,7 @@ M.base46 = {
   theme = "everblush",
   hl_override = {
     Comment = { fg = "#747474", italic = true }, -- Vim Comment
-    ["@comment"] = { fg = "#747474", italic = true }, -- Programming Comment
+    ["@comment"] = { fg = "#9da5b4", italic = true }, -- Programming Comment
     LspInlayHint = {fg = "#747474", italic = true }, -- Inlay Hint Comment
   },
 }
