@@ -1,0 +1,158 @@
+{
+  // =========================
+  // Pengaturan Umum VSCode
+  // =========================
+  "window.zoomLevel": 0, // Atur tingkat zoom seluruh VSCode
+
+  // =========================
+  // Workbench
+  // =========================
+  "workbench.settings.editor": "json", // Gunakan editor JSON untuk settings
+  "workbench.startupEditor": "none", // Nonaktifkan halaman welcome saat startup
+  "workbench.iconTheme": "vscode-icons", // Gunakan tema ikon VSCode-icons
+  "workbench.colorTheme": "One Dark Pro", // Tema warna editor One Dark Pro
+  "workbench.tree.indent": 14, // Indentasi sidebar explorer
+  "workbench.tree.renderIndentGuides": "onHover", // Garis indent muncul saat hover
+
+  "workbench.colorCustomizations": {
+    // Custom warna UI & editor
+    "tree.indentGuidesStroke": "#e6e351", // Warna garis indent sidebar
+    "editorWhitespace.foreground": "#a57b73", // Warna spasi kosong di editor
+    "editorRuler.foreground": "#6a6d64", // Warna ruler vertikal
+    "editorError.foreground": "#6e7681", // Warna error teks redup
+    "editorWarning.foreground": "#6e7681", // Warna warning teks redup
+    "editorInfo.foreground": "#6e7681", // Warna info teks redup
+    "editorHint.foreground": "#6e7681", // Warna hint teks redup
+    "editorUnnecessary.foreground": "#6e7681", // Warna variable/import tidak digunakan
+    "editorUnnecessary.opacity": "#00000099", // Opacity untuk simbol tidak perlu
+  },
+
+  // =========================
+  // Editor
+  // =========================
+  "editor.fontFamily": "JetBrainsMono Nerd Font, Fira Code", // Font editor
+  "editor.fontSize": 16, // Ukuran font editor
+  "editor.lineHeight": 22, // Tinggi baris
+  "editor.letterSpacing": 0.5, // Spasi antar huruf
+  "editor.fontWeight": 500, // Ketebalan font
+  "editor.fontLigatures": false, // Nonaktifkan ligatures
+  "editor.cursorStyle": "line", // Gaya kursor garis
+  "editor.cursorWidth": 5, // Lebar kursor
+  "editor.cursorBlinking": "expand", // Efek kedip kursor
+  "editor.smoothScrolling": true, // Aktifkan scroll halus
+  "editor.tabSize": 4, // Ukuran tab
+  "editor.insertSpaces": true, // Gunakan spasi untuk tab
+  "editor.minimap.enabled": false, // Nonaktifkan minimap
+  "editor.minimap.renderCharacters": true, // Tampilkan karakter di minimap
+  "editor.minimap.size": "fill", // Minimmap mengisi ruang
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // =========================
+  // File & Auto Save
+  // =========================
+  "files.autoSave": "afterDelay", // Auto-save file setelah delay
+  "files.autoSaveDelay": 1000, // Delay auto-save dalam ms
+  "explorer.confirmDragAndDrop": false, // Nonaktifkan konfirmasi drag & drop file
+
+  // =========================
+  // Terminal
+  // =========================
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font, Fira Code", // Font terminal
+  "terminal.integrated.fontSize": 16, // Ukuran font terminal
+  "terminal.integrated.cursorBlinking": true, // Cursor terminal berkedip
+  "terminal.integrated.cursorStyle": "underline", // Cursor terminal underline
+  "terminal.integrated.lineHeight": 1.4, // mendekati editor.lineHeight (22 / 16 ≈ 1.375)
+  "terminal.integrated.defaultProfile.linux": "zsh", // Default terminal Linux
+  "terminal.integrated.defaultProfile.windows": "Git Bash", // Default terminal Windows
+
+  // =========================
+  // JavaScript Settings
+  // =========================
+
+  // =========================
+  // Python Settings
+  // =========================
+  "[python]": {
+    "editor.defaultColorDecorators": "auto", // Warna dekorator kode
+    "editor.defaultFormatter": "ms-python.black-formatter", // Formatter Python Black
+    "editor.formatOnSave": true, // Format otomatis saat save
+    "editor.formatOnType": true, // Format otomatis saat mengetik
+    "editor.trimAutoWhitespace": true, // Hapus spasi akhir
+    "editor.wordWrap": "bounded", // Word wrap di editor
+    "editor.wordWrapColumn": 99, // Panjang wrap
+    "editor.rulers": [
+      // Garis vertikal sebagai batas kolom
+      { "column": 72 }, // Kode standar 72 kolom
+      { "column": 79 }, // Komentar/docstring 79 kolom
+      { "column": 99 }, // Maksimal 99 kolom
+    ],
+    "editor.wordBasedSuggestions": "off", // Matikan saran kata
+    "editor.codeActionsOnSave": {
+      // Action saat save
+      "source.organizeImports": "explicit", // Atur import otomatis
+      "source.fixAll": "explicit", // Perbaiki semua kesalahan
+    },
+    "diffEditor.ignoreTrimWhitespace": false, // Hitung spasi saat diff
+    "gitlens.codeLens.symbolScopes": ["!Module"], // Scope GitLens
+  },
+  "python.defaultInterpreterPath": "C:\\Users\\daffa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe", // Path Python default
+  "python.linting.Enable": true, // Aktifkan linting
+  "python.linting.lintOnSave": true, // Lint saat save
+  "python.formatting.provider": "black", // Gunakan Black untuk formatting
+  "python.analysis.typeCheckingMode": "standard", // Mode pemeriksaan tipe
+  "python.analysis.autoSearchPaths": true, // Cari jalur pustaka otomatis
+  "python.analysis.autoFormatStrings": false, // Tidak format string otomatis
+  "python.analysis.completeFunctionParens": false, // Tidak auto-complete ()
+  "python.analysis.autoImportCompletions": false, // Tidak auto-complete import
+  "python.languageServer": "Pylance", // Gunakan Pylance
+  "isort.args": ["--profile", "black"], // Argumen isort
+  "python.testing.pytestEnabled": true, // Enable pytest
+  "python.testing.unittestEnabled": false, // Nonaktifkan unittest
+  "python.testing.nosetestsEnabled": false, // Nonaktifkan nosetests
+  "python.testing.pytestArgs": ["tests"], // Folder pytest
+
+  // =========================
+  // Token Color Customization (Komentar)
+  // =========================
+  "editor.tokenColorCustomizations": {
+    "comments": "#9da5b4", // Warna komentar normal, terang
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.line",
+          "comment.block",
+          "comment.documentation",
+        ], // Semua tipe komentar
+        "settings": { "foreground": "#9da5b4", "fontStyle": "italic" }, // Warna & italic
+      },
+      {
+        "scope": "comment.keyword.todo", // TODO keyword
+        "settings": { "foreground": "#ff8800", "fontStyle": "bold" }, // Bold + oranye
+      },
+    ],
+  },
+
+  // =========================
+  // Miscellaneous Plugins & Tools
+  // =========================
+  "indentRainbow.indicatorStyle": "light", // Indent rainbow style
+  "indentRainbow.lightIndicatorStyleLineWidth": 1, // Lebar garis
+  "indentRainbow.errorColor": "rgba(102,44,44,0.6)", // Warna error
+  "indentRainbow.colors": [
+    // Warna indent rainbow
+    "rgba(255,255,64,0.3)",
+    "rgba(91,214,91,0.3)",
+    "rgba(214,78,214,0.3)",
+    "rgba(60,216,216,0.3)",
+  ],
+  "wakatime.apiKey": "your_apikey", // API Key WakaTime
+  "glassit.alpha": 255, // Transparansi GlassIt
+  "editor.suggestOnTriggerCharacters": true, // Saran otomatis saat ketik
+  "security.workspace.trust.untrustedFiles": "open", // File tidak terpercaya langsung dibuka
+  "vscodeGoogleTranslate.preferredLanguage": "Indonesian",
+  "terminal.integrated.initialHint": false,
+"console-ninja.featureSet": "Community",
+"workbench.editor.useModal": "some",
+}
