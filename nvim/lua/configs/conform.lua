@@ -5,6 +5,7 @@ local options = {
     html = { "prettier" },
     javascript = {"prettier"},
     typescript = {"prettier"},
+    java = {"google-java-format"},
     python =  {"black"},
     c = {"clang-format"},
     cpp = {"clang-format"},

@@ -23,7 +23,7 @@ return {
    		ensure_installed = {
    			"vim", "lua", "vimdoc", "html", "css",
         -- Tambahan bahasa lain yang digunakan:
-        "python", "javascript", "typescript", "go", "cpp", "c", "rust"
+        "python", "java", "javascript", "typescript", "go", "cpp", "c", "rust"
    		},
       highlight = {
         enable = true, -- Memastikan syntax highlighting Treesitter juga aktif
