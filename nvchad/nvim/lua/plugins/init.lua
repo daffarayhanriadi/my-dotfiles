@@ -110,15 +110,16 @@ return {
     end
   },
 
-  {
-    "gisketch/triforce.nvim",
-    dependencies = {
-      "nvzone/volt",
-    },
-    config = function()
-      require "configs.triforce"
-    end,
-  },
+  -- Sedang Error (Admin-nya kena WrongSuspend)
+  -- {
+  --   "gisketch/triforce.nvim",
+  --   dependencies = {
+  --     "nvzone/volt",
+  --   },
+  --   config = function()
+  --     require "configs.triforce"
+  --   end,
+  -- },
 
   -- todo nvim
   {
