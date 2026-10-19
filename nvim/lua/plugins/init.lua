@@ -138,6 +138,7 @@ return {
     cmd = "Trouble",
   },
 
+  -- A hackable markdown, Typst, latex, html(inline) & Asciidoc previewer for Neovim
   {
     "OXY2DEV/markview.nvim",
     lazy = false,
