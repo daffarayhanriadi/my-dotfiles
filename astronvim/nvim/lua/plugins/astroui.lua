@@ -11,7 +11,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "astrodark",
+    colorscheme = "github_dark",
     -- change colorscheme based on macOS system appearance
     -- colorscheme = (function()
     --   local handle = io.popen "defaults read -g AppleInterfaceStyle 2>/dev/null"
