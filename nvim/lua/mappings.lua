@@ -4,6 +4,11 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+-- Memetakan Ctrl + Backspace untuk menghapus satu kata ke belakang di Insert Mode
+map("i", "C-BS", "<C-w>", { desc = "Delete word backward"})
+map("i", "C-h", "<C-w>", { desc = "Delete word backward"})
+-- Tambahkan juga { "command": { "action": "sendInput", "input": "\u0017" }, "keys": "ctrl+backspace" }, di dalam action yang ada pada setting JSON terminal windows (jika menggunakan wsl)
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
