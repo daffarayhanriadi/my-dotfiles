@@ -1,39 +1,87 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
-
-  -- These are some examples, uncomment them if you want to see them work!
+  -- NOTE: LSP Config override
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "configs.lspconfig"
+      -- require "configs.lspconfig"
+      require "nvchad.configs.lspconfig"
+      require "configs.lspconfig" -- load our web dev servers
+    end,
+  },
+
+  -- NOTE: Enhanced Syntax Highlighting (Treesitter)
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = {
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "jsx",
+        "tsx",
+        "json",
+        "yaml",
+        "graphql",
+        "markdown",
+        "vim",
+        "lua",
+        "vimdoc",
+        "python",
+        "java",
+        "go",
+        "cpp",
+        "c",
+        "rust",
+      },
+      highlight = {
+        enable = true, -- Memastikan syntax highlighting Treesitter juga aktif
+      },
+    },
+  },
+
+  -- NOTE: Auto-formatting on Save (conform.nvim)
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre", -- uncomment for format on save
+    opts = require "configs.conform",
+  },
+
+  -- NOTE: Auto-close & Auto-rename HTML/JSX tags
+  {
+    "windwp/nvim-ts-autotag",
+    ft = { "html", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
+  -- NOTE: Git signs in the gutter (Crucial for tracking backend/frontend changes)
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "User FilePost",
+    opts = function()
+      return require "nvchad.configs.gitsigns"
     end,
   },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
-  {
-   	"nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-   	opts = {
-   		ensure_installed = {
-   			"vim", "lua", "vimdoc", "html", "css",
-        -- Tambahan bahasa lain yang digunakan:
-        "python", "java", "javascript", "typescript", "go", "cpp", "c", "rust"
-   		},
-      highlight = {
-        enable = true, -- Memastikan syntax highlighting Treesitter juga aktif
-      },
-   	},
-   },
-
+  -- NOTE: WakaTime
   {
     "wakatime/vim-wakatime",
     lazy = false,
+  },
+
+  {
+    "fiqryq/wakastat.nvim",
+    event = "VeryLazy",
+    -- cmd = { "WakastatRefresh", "WakastatStatus" },
+    config = function()
+      require "configs.wakastat"
+    end,
   },
 
   {
@@ -61,9 +109,9 @@ return {
     end,
   },
 
-  { 
-    "nvchad/showkeys", 
-    cmd = "ShowkeysToggle", 
+  {
+    "nvchad/showkeys",
+    cmd = "ShowkeysToggle",
     opts = { position = "top-center" },
   },
 
@@ -79,17 +127,17 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require "configs.chunk"
-    end
+    end,
   },
 
-  { "nvzone/volt",     lazy = true },
-  { "nvzone/menu",     lazy = true },
+  { "nvzone/volt", lazy = true },
+  { "nvzone/menu", lazy = true },
 
   {
     "nvzone/timerly",
-    dependencies = 'nvzone/volt',
+    dependencies = "nvzone/volt",
     cmd = "TimerlyToggle",
-    opts = {} -- optional
+    opts = {}, -- optional
   },
 
   {
@@ -99,7 +147,7 @@ return {
     cmd = "FloatermToggle",
   },
 
-  { 'Civitasv/cmake-tools.nvim', opts = {} },
+  { "Civitasv/cmake-tools.nvim", opts = {} },
 
   {
     "slowy07/mywpm.nvim",
@@ -107,7 +155,7 @@ return {
     event = "VeryLazy",
     config = function()
       require "configs.mywpm"
-    end
+    end,
   },
 
   -- Sedang Error (Admin-nya kena WrongSuspend)
@@ -128,7 +176,7 @@ return {
     lazy = false,
     config = function()
       require "configs.todo"
-    end
+    end,
   },
 
   -- trouble nvim
@@ -146,14 +194,13 @@ return {
   },
 
   {
-    'richwomanbtc/overleaf.nvim',
+    "richwomanbtc/overleaf.nvim",
     lazy = false,
     config = function()
-      require('overleaf').setup({
-        cookie = 's%3A752DdyZE89sWKTeSg267rCa6kX9pPoxE.pIYlmst60FSjHwqCVNnRo7qxpFlTmnD3jFU6dgBLYh8',
-      })
+      require("overleaf").setup {
+        cookie = "s%3A752DdyZE89sWKTeSg267rCa6kX9pPoxE.pIYlmst60FSjHwqCVNnRo7qxpFlTmnD3jFU6dgBLYh8",
+      }
     end,
-    build = 'cd node && npm install',
-  }
-
+    build = "cd node && npm install",
+  },
 }
