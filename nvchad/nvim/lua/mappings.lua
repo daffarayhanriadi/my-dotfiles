@@ -5,15 +5,15 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 -- Memetakan Ctrl + Backspace untuk menghapus satu kata ke belakang di Insert Mode
-map("i", "C-BS", "<C-w>", { desc = "Delete word backward"})
-map("i", "C-h", "<C-w>", { desc = "Delete word backward"})
+map("i", "C-BS", "<C-w>", { desc = "Delete word backward" })
+map("i", "C-h", "<C-w>", { desc = "Delete word backward" })
 -- Tambahkan juga { "command": { "action": "sendInput", "input": "\u0017" }, "keys": "ctrl+backspace" }, di dalam action yang ada pada setting JSON terminal windows (jika menggunakan wsl)
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 map("n", "<C-t>", function()
-  require("minty.shades").open({ border = false })
+  require("minty.shades").open { border = false }
 end, {})
 
 vim.keymap.set("n", "<C-p>", ":FloatermToggle<CR>", { silent = true })
@@ -23,7 +23,7 @@ vim.keymap.set("n", "<C-l>", function()
 end, { desc = "tampilkan triforce statsnya" })
 
 vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
-  require('menu.utils').delete_old_menus()
+  require("menu.utils").delete_old_menus()
 
   vim.cmd.exec '"normal! \\<RightMouse>"'
 
@@ -38,7 +38,7 @@ end, {})
 
 -- Toggle inlay hints
 map("n", "<leader>ih", function()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = 0 }, { bufnr = 0 })
 end, { desc = "Toggle inlay hints" })
 
 map("n", "<leader>mw", function()
