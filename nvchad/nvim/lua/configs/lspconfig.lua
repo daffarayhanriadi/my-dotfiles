@@ -1,22 +1,34 @@
-local util = require("lspconfig.util")
+local util = require "lspconfig.util"
 
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "clangd", "basedpyright", "gopls", "ts_ls", "rust_analyzer", "neocmake", "zls", "lua_ls",
-  "nim_langserver", "rust_analyzer", "docker_language_server", "powershell_es", "bashls" }
+local servers = {
+  "html",
+  "cssls",
+  "ts_ls",
+  "tailwindcss",
+  "eslint",
+  "clangd",
+  "basedpyright",
+  "gopls",
+  "rust_analyzer",
+  "neocmake",
+  "zls",
+  "lua_ls",
+  "nim_langserver",
+  "rust_analyzer",
+  "docker_language_server",
+  "powershell_es",
+  "bashls",
+}
 
 vim.lsp.config("basedpyright", {
   root_dir = function(bufnr, on_dir)
     local fname = vim.api.nvim_buf_get_name(bufnr)
-    local root = util.root_pattern(
-      ".git",
-      "pyproject.toml",
-      "setup.py",
-      "setup.cfg",
-      "requirements.txt",
-      ".venv",
-      "Pipfile"
-    )(fname)
+    local root =
+      util.root_pattern(".git", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".venv", "Pipfile")(
+        fname
+      )
     on_dir(root or vim.fn.fnamemodify(fname, ":h"))
   end,
 
@@ -45,7 +57,7 @@ vim.lsp.config("basedpyright", {
 vim.lsp.enable(servers)
 
 vim.lsp.config.bashls = {
-  cmd = { "bash-language-server", "start" }
+  cmd = { "bash-language-server", "start" },
 }
 
 vim.lsp.config.nim_langserver = {
@@ -54,9 +66,9 @@ vim.lsp.config.nim_langserver = {
   root_dir = function(bufnr, on_dir)
     local fname = vim.api.nvim_buf_get_name(bufnr)
     on_dir(
-      util.root_pattern '*.nimble' (fname) or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+      util.root_pattern "*.nimble"(fname) or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
     )
-  end
+  end,
 }
 
 vim.lsp.config.clangd = {
@@ -69,12 +81,7 @@ vim.lsp.config.clangd = {
     "cppm",
   },
 
-  before_initroot_dir = util.root_pattern(
-    ".clang-format",
-    "compile_commands.json",
-    ".git",
-    "CMakeLists.txt"
-  ),
+  before_initroot_dir = util.root_pattern(".clang-format", "compile_commands.json", ".git", "CMakeLists.txt"),
 
   cmd = {
     "clangd",
