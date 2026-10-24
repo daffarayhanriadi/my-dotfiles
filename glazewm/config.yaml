@@ -174,7 +174,7 @@ binding_modes:
         bindings: ['escape', 'enter']
 
 keybindings:
-  # Shift focus in a given direction.
+  # ctrl focus in a given direction.
   - commands: ['focus --direction left']
     bindings: ['win+h', 'win+left']
   - commands: ['focus --direction right']
@@ -186,13 +186,13 @@ keybindings:
 
   # Move focused window in a given direction.
   - commands: ['move --direction left']
-    bindings: ['win+shift+h', 'win+shift+left']
+    bindings: ['win+ctrl+h', 'win+shift+left']
   - commands: ['move --direction right']
-    bindings: ['win+shift+l', 'win+shift+right']
+    bindings: ['win+ctrl+l', 'win+shift+right']
   - commands: ['move --direction up']
-    bindings: ['win+shift+k', 'win+shift+up']
+    bindings: ['win+ctrl+k', 'win+shift+up']
   - commands: ['move --direction down']
-    bindings: ['win+shift+j', 'win+shift+down']
+    bindings: ['win+ctrl+j', 'win+shift+down']
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ['resize --width -2%']
@@ -210,10 +210,10 @@ keybindings:
   - commands: ['wm-enable-binding-mode --name resize']
     bindings: ['win+r']
 
-  # Disables window management and all other keybindings until win+shift+p
+  # Disables window management and all other keybindings until win+ctrl+p
   # is pressed again.
   - commands: ['wm-toggle-pause']
-    bindings: ['win+shift+p']
+    bindings: ['win+ctrl+p']
 
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
@@ -226,7 +226,7 @@ keybindings:
 
   # Change the focused window to be floating.
   - commands: ['toggle-floating --centered']
-    bindings: ['win+shift+space']
+    bindings: ['win+ctrl+space']
 
   # Change the focused window to be tiling.
   - commands: ['toggle-tiling']
@@ -242,19 +242,19 @@ keybindings:
 
   # Close focused window.
   - commands: ['close']
-    bindings: ['win+shift+q']
+    bindings: ['win+ctrl+q']
 
   # Kill GlazeWM process safely.
   - commands: ['wm-exit']
-    bindings: ['win+shift+e']
+    bindings: ['win+ctrl+e']
 
   # Re-evaluate configuration file.
   - commands: ['wm-reload-config']
-    bindings: ['win+shift+r']
+    bindings: ['win+ctrl+r']
 
   # Redraw all windows.
   - commands: ['wm-redraw']
-    bindings: ['win+shift+w']
+    bindings: ['win+ctrl+w']
 
   # Launch CMD terminal. winernatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
@@ -295,30 +295,30 @@ keybindings:
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
   - commands: ['move-workspace --direction left']
-    bindings: ['win+shift+a']
+    bindings: ['win+ctrl+a']
   - commands: ['move-workspace --direction right']
-    bindings: ['win+shift+f']
+    bindings: ['win+ctrl+f']
   - commands: ['move-workspace --direction up']
-    bindings: ['win+shift+d']
+    bindings: ['win+ctrl+d']
   - commands: ['move-workspace --direction down']
-    bindings: ['win+shift+s']
+    bindings: ['win+ctrl+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ['move --workspace 1', 'focus --workspace 1']
-    bindings: ['win+shift+1']
+    bindings: ['win+ctrl+1']
   - commands: ['move --workspace 2', 'focus --workspace 2']
-    bindings: ['win+shift+2']
+    bindings: ['win+ctrl+2']
   - commands: ['move --workspace 3', 'focus --workspace 3']
-    bindings: ['win+shift+3']
+    bindings: ['win+ctrl+3']
   - commands: ['move --workspace 4', 'focus --workspace 4']
-    bindings: ['win+shift+4']
+    bindings: ['win+ctrl+4']
   - commands: ['move --workspace 5', 'focus --workspace 5']
-    bindings: ['win+shift+5']
+    bindings: ['win+ctrl+5']
   - commands: ['move --workspace 6', 'focus --workspace 6']
-    bindings: ['win+shift+6']
+    bindings: ['win+ctrl+6']
   - commands: ['move --workspace 7', 'focus --workspace 7']
-    bindings: ['win+shift+7']
+    bindings: ['win+ctrl+7']
   - commands: ['move --workspace 8', 'focus --workspace 8']
-    bindings: ['win+shift+8']
+    bindings: ['win+ctrl+8']
   - commands: ['move --workspace 9', 'focus --workspace 9']
-    bindings: ['win+shift+9']
+    bindings: ['win+ctrl+9']
